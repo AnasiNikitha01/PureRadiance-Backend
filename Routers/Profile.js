@@ -5,6 +5,7 @@ const profile_user = express.Router();
 
 profile_user.get('/profiles',(req,res)=>{
    const {token} = req.cookies;
+   console.log(token);
 
    jwt.verify(token,process.env.Secret_key,{},(err,data)=>{
        try { 
