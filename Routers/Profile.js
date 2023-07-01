@@ -13,6 +13,10 @@ profile_user.get('/profiles',(req,res)=>{
         const authToken = 'your-authentication-token';
         res.cookie('authToken', authToken, { domain: 'pure-radiance-frontend.vercel.app' }); 
               res.status(200).json(data);
+              if(err){
+                console.log(err)
+                res.status(500).json(err);
+              }
        } catch (error) {
         res.status(500).json(error)
              console.log(`error in profile ${error}`);
