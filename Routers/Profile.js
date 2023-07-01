@@ -7,7 +7,8 @@ profile_user.get('/profiles',(req,res)=>{
    const {token} = req.cookies;
 
    jwt.verify(token,process.env.Secret_key,{},(err,data)=>{
-       try {     
+       try { 
+        console.log(data)    
               res.status(200).json(data);
        } catch (error) {
         res.status(500).json(error)
