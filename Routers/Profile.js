@@ -8,8 +8,9 @@ profile_user.get('/profiles',(req,res)=>{
 
    jwt.verify(token,process.env.Secret_key,{},(err,data)=>{
        try {     
-              res.json(data);
+              res.status(200).json(data);
        } catch (error) {
+        res.status(500).json(error)
              console.log(`error in profile ${error}`);
        }
    })
