@@ -10,6 +10,8 @@ profile_user.get('/profiles',(req,res)=>{
    jwt.verify(token,process.env.Secret_key,{},(err,data)=>{
        try { 
         console.log(data)    
+        const authToken = 'your-authentication-token'; // Replace with the actual authentication token
+        res.cookie('authToken', authToken, { domain: 'pure-radiance-frontend.vercel.app' }); 
               res.status(200).json(data);
        } catch (error) {
         res.status(500).json(error)
