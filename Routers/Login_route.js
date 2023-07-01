@@ -18,14 +18,14 @@ login.post('/login',async(req,res,next)=>{
     const pass_Compare = bcrypt.compareSync(Password,findUser.Password);
 
     if(pass_Compare){
-        console.log("done login");
         jwt.sign({Email,id:findUser._id,Position},process.env.Secret_key,{},(err,token)=>{
-        if(err) throw err;
-        res.cookie('token',token).json({
-            Email,
-            id:findUser._id,
-            position: findUser.Position,
-        })   
+            if(err) throw err;
+            res.cookie('token',token).json({
+                Email,
+                id:findUser._id,
+                position: findUser.Position,
+            })   
+            console.log("done login");
      })
     }else{
         res.status(400).json("Incorrect Password");
