@@ -107,13 +107,13 @@ const port = process.env.PORT || 5000;
 
 connectDB();
 
-// Serve static files from the build directory
-app.use(express.static(path.join(__dirname, '../client/public')));
+// // Serve static files from the build directory
+// app.use(express.static(path.join(__dirname, '../client/public')));
 
-// Handle all other routes and return the index.html file
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/public/index.html'));
-});
+// // Handle all other routes and return the index.html file
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../client/public/index.html'));
+// });
 
 
   
